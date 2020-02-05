@@ -1,0 +1,66 @@
+body{
+    padding:0;
+    margin:0;
+}
+
+.rockBoxPlayer {
+    background-color:black;
+    color:white;
+    padding:0;
+    margin:0;
+    width: 100vw;
+}
+
+.rockBoxPlayer h6{
+    margin:0vw;
+    margin-bottom:0;
+    font-family:Caesar Dressing;
+    font-size: 4vw;
+    line-height: 4vw;
+}
+
+.controlsPanel{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: darkgray;
+}
+
+.buttonsPanel{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: darkgray;
+    font-size: 4vw;
+}
+
+.buttons{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size:15vw;
+    padding:0;
+    margin:0.5vw;
+}
+
+.infoDiv{
+    padding-top:0; 
+    flex-grow: 1;
+    background-color: darkgray; 
+    color: darkblue;
+    font-family: Bungee Inline;
+    font-size: 5vw;
+    text-align: center;
+    align-self: center;
+}
+
+.actionDiv{
+    line-height: 8vw;
+    padding:0;
+    margin-top:0.5vw;
+    align-self: center;
+    font-family: Chathura; 
+    font-size: 8vw; 
+    color: yellow;
+}
