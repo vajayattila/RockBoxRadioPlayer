@@ -9,20 +9,24 @@
     <script type="text/javascript" src="./js/audioplayer.js"></script> 
     <link rel="stylesheet" type="text/css" href="./css/audioplayer.css">
 </head>
-<body style="background-color: gray;" onload="setup();setupPlayer();">  
+<body onload="setup();setupPlayer();">  
     <audio id="rockboxPlayer" preload="metadata">
         Your browser does not support the audio element.
     </audio>    
-    <div id="rockBoxPlayer" class="rockBoxPlayer"> 
-        <h6>RockBoxRadio player</h6>
-        <div class="controlsPanel">
-            <div class="buttonsPanel">
-                <button id="playButton" onclick="playRock()" type="button" class="buttons">▶️</button>
-                <button id="stopButton" onclick="pauseRock()" type="button" class="buttons">⏹️</button>
-            </div> 
-            <div id="infoDiv" class="infoDiv"></div>            
-        </div> 
-        <div id="actionDiv" class="actionDiv"></div>    
-    </div>     
+    <div class="main">
+        <div class="wrapper">
+            <div id="rockBoxPlayer" class="rockBoxPlayer"> 
+                <h6>RockBoxRadio player</h6>
+                <div class="controlsPanel">
+                    <div class="buttonsPanel">
+                        <button id="playButton" onclick="playRock()" type="button" class="buttons">></button>
+                        <button id="stopButton" onclick="pauseRock()" type="button" class="buttons">II</button>
+                    </div> 
+                    <div id="infoDiv" class="infoDiv"></div>            
+                </div> 
+                <div id="actionDiv" class="actionDiv"></div>    
+            </div>  
+        </div>
+    <div>   
 </body> 
 </html>
