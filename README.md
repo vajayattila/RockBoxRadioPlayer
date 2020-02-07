@@ -6,3 +6,5 @@ Demonstration web based player (HTML5 audio player) for IceCast servers. Using H
 - Demonstrating embedded mode (iframe)
 - Tested in firefox, chrome, and android browser.
 - Volume control
+
+<embed src="https://vps.vyata.hu:9001/" width="200px" height="85px"></embed>  
