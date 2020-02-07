@@ -78,6 +78,7 @@ function setupPlayer(){
     var audio=document.getElementById("rockboxPlayer");
     audio.src=urlBase.concat("/stream?type=.mp3");
     audio.type="audio/mpeg";
+    setVolumeButtons();    
 }
 
 function setPausedTimer(){
@@ -98,11 +99,19 @@ function volumeString(){
     return "Volume: " + player.volume*100 + "%";
 }
 
+function setVolumeButtons(){
+    var volUp=document.getElementById("volUp");  
+    var volDown=document.getElementById("volDown");      
+    volUp.disabled=player.volume==1;
+    volDown.disabled=player.volume==0;
+}
+
 function volUp(){
     if(player.volume<1){
         setPausedTimer();
         player.volume=Math.round((player.volume+0.1)*10)/10;
         infoDiv.innerHTML=volumeString();
+        setVolumeButtons();
     }
 }  
 
@@ -111,5 +120,6 @@ function volDown(){
         setPausedTimer();        
         player.volume=Math.round((player.volume-0.1)*10)/10;        
         infoDiv.innerHTML=volumeString();
+        setVolumeButtons();        
     }
 }  
