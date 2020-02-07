@@ -1,5 +1,6 @@
 var player = null;  
 var urlBase= "http://vps.vyata.hu:9000";  
+var playerCaption= "RockBoxRadio Player";
 var songInfoRefreshRate=2000;  
 var player = null;        
 var info = null; 
@@ -13,15 +14,17 @@ var stopButton = null;
 function setup(){
     player = document.getElementById("rockboxPlayer");     
     info = document.getElementById("actionDiv"); 
+    caption = document.getElementById("caption");
+    caption.innerHTML=playerCaption;
     xmlhttp = new XMLHttpRequest();
     serverInfo=null;        
-    infoDiv = document.getElementById("infoDiv");            
+    infoDiv = document.getElementById("infoDiv");         
     timeR = setInterval(function(){
         if(!player.paused){
             xmlhttp.open("GET", urlBase.concat("/", "status-json.xsl"), true);
             xmlhttp.send();    
         }else{
-            infoDiv.innerHTML="";                
+            // do nothing                
         }         
     }, songInfoRefreshRate);
     xmlhttp.onreadystatechange = function() {
@@ -40,22 +43,24 @@ function setup(){
     player.oncanplay=function() {
         playButton.disabled=false;            
         stopButton.disabled=true;
-        info.innerHTML="Ready.";
+        //info.innerHTML=playerCaption;
+        if(player.paused){
+            infoDiv.innerHTML="Ready.";
+        }
     };              
     player.onplaying=function() { 
         playButton.disabled=true;            
         stopButton.disabled=false;            
-        info.innerHTML="Playing...";
     };
     player.onpause=function() {
         playButton.disabled=false;            
         stopButton.disabled=true;                
-        info.innerHTML="Stopped";
+        infoDiv.innerHTML="Stopped";        
     };   
     player.onloadstart=function() {
         playButton.disabled=false;            
         stopButton.disabled=true;                
-        info.innerHTML="Loading...";
+        infoDiv.innerHTML="Loading...";
     };                
 }
 
