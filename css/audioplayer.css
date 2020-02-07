@@ -52,7 +52,7 @@ h6{
     text-align: center;
 
     background: -webkit-linear-gradient(white, #353F47);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 0.04vw;
     -webkit-text-stroke-color: #353F47;    
@@ -72,6 +72,7 @@ h6{
 
 .buttonsPanel{
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
 /*    background-color: darkgray;*/
     font-size: 4vw;
