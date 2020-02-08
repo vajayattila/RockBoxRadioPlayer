@@ -33,6 +33,7 @@ function setup(){
             serverInfo = JSON.parse(this.responseText);
             if(Array.isArray(serverInfo.icestats.source)){
                 infoDiv.innerHTML=serverInfo.icestats.source[0].title;
+                //infoDiv.innerHTML="aaaaaaaaaa bbbbbbbbbb cccccc ccccc dddddddddd eeeeeeeeee";
             }else{
                 infoDiv.innerHTML=serverInfo.icestats.source.title;
             }
@@ -78,7 +79,8 @@ function setupPlayer(){
     var audio=document.getElementById("rockboxPlayer");
     audio.src=urlBase.concat("/stream?type=.mp3");
     audio.type="audio/mpeg";
-    setVolumeButtons();    
+    setVolumeButtons();
+    playRock();    
 }
 
 function setPausedTimer(){
