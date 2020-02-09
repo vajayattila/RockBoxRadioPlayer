@@ -4,8 +4,8 @@
 }
 
 html, body {
-    height: 25px;
-    width: 120px;
+    height: 100%;
+    width: 100%;
     padding:0;
     margin:0;  
 }
@@ -14,19 +14,8 @@ html, body {
     margin:0;
     padding:0;
     background: #0000ff;    
-}
-
-.main {
     height: 100%;
-    width: 100%;
-    display: table;    
 }
-
-.wrapper {
-    display: table-cell;
-    height: 100%;
-    vertical-align: middle;
-} 
 
 h1{
     display: none;
@@ -40,7 +29,7 @@ h6{
 .controlsPanel{
     display: flex;
     flex-wrap: nowrap;
-    height: 25px;
+    height: 100%;
 }
 
 .buttonsPanel{
@@ -93,4 +82,29 @@ h6{
     line-height: 8px;
     text-align: center;
     align-self: center;
+}
+
+@media screen and (min-width: 150px) and (max-width: 199px) {
+    .infoDiv{
+        font-size: 8.4px;
+        line-height: 8.4px;        
+    }
+}
+@media screen and (min-width: 200px) and (max-width: 249px) {
+    .infoDiv{
+        font-size: 11px;
+        line-height: 11px;        
+    }
+}
+@media screen and (min-width: 250px) and (max-width: 399px) {
+    .infoDiv{
+        font-size: 12px;
+        line-height: 12px;        
+    }
+}
+@media screen and (min-width: 400px) {
+    .infoDiv{
+        font-size: 13px;
+        line-height: 13px;        
+    }
 }
