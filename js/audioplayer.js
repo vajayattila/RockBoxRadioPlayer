@@ -1,7 +1,9 @@
 var player = null;  
 var urlBase= "https://vps.vyata.hu:9011";  
 var playerCaption= "RockBoxRadio Player";
-var songInfoRefreshRate=4000;  
+var songInfoRefreshRate=4000;
+var maxSongTitleLength=60;  
+var forceSongShowTitle=false;
 var player = null;        
 var info = null; 
 var xmlhttp = null;
@@ -12,6 +14,14 @@ var playButton = null;
 var stopButton = null;
 var pauseInterval=null;
 
+function setSongTitle(title){
+    if(maxSongTitleLength<title.length){
+        infoDiv.innerHTML=title.substring(0,maxSongTitleLength)+"...";
+    }else{
+        infoDiv.innerHTML=title;
+    }
+}
+
 function setup(){
     player = document.getElementById("rockboxPlayer");     
     info = document.getElementById("actionDiv"); 
@@ -21,7 +31,7 @@ function setup(){
     serverInfo=null;        
     infoDiv = document.getElementById("infoDiv");         
     timeR = setInterval(function(){
-        if(!player.paused && pauseInterval==null){
+        if((!player.paused && pauseInterval==null) || forceSongShowTitle===true){
             xmlhttp.open("GET", urlBase.concat("/", "status-json.xsl"), true);
             xmlhttp.send();    
         }else{
@@ -32,10 +42,10 @@ function setup(){
         if (this.readyState == 4 && this.status == 200) {
             serverInfo = JSON.parse(this.responseText);
             if(Array.isArray(serverInfo.icestats.source)){
-                infoDiv.innerHTML=serverInfo.icestats.source[0].title;
-                //infoDiv.innerHTML="aaaaaaaaaa bbbbbbbbbb cccccc ccccc dddddddddd eeeeeeeeee";
+                setSongTitle(serverInfo.icestats.source[0].title);
             }else{
-                infoDiv.innerHTML=serverInfo.icestats.source.title;
+                setSongTitle(serverInfo.icestats.source.title);
+                //setSongTitle("aaaaaaaaaa bbbbbbbbbb cccccc ccccc dddddddddd eeeeeeeeee");                 
             }
         }
     };
@@ -47,7 +57,7 @@ function setup(){
         stopButton.disabled=true;
         //info.innerHTML=playerCaption;
         if(player.paused){
-            infoDiv.innerHTML="Ready.";
+            infoDiv.innerHTML="Press '>' to play.";
         }
     };              
     player.onplaying=function() { 
@@ -80,7 +90,7 @@ function setupPlayer(){
     audio.src=urlBase.concat("/stream?type=.mp3");
     audio.type="audio/mpeg";
     setVolumeButtons();
-    playRock();    
+    //playRock();    
 }
 
 function setPausedTimer(){
@@ -103,9 +113,13 @@ function volumeString(){
 
 function setVolumeButtons(){
     var volUp=document.getElementById("volUp");  
-    var volDown=document.getElementById("volDown");      
-    volUp.disabled=player.volume==1;
-    volDown.disabled=player.volume==0;
+    var volDown=document.getElementById("volDown");     
+    if(volUp!=null){ 
+        volUp.disabled=player.volume==1;
+    }
+    if(volDown!=null){
+        volDown.disabled=player.volume==0;
+    }
 }
 
 function volUp(){
@@ -125,3 +139,7 @@ function volDown(){
         setVolumeButtons();        
     }
 }  
+
+function forceSongTitle(){
+    forceSongShowTitle=true;
+}
