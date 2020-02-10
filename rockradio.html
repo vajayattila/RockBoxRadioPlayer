@@ -1,0 +1,46 @@
+<!--
+ @file audioplayer.js
+ @brief Web based player (HTML5 audio player) for IceCast servers. Using HTML, JAVASCRIPT, CSS. 
+ Project home: https://github.com/vajayattila/RockBoxRadioPlayer
+ @author Vajay Attila (vajay.attila@gmail.com)
+ @copyright MIT License (MIT)
+ @date 2020.02.11-2020.02.11
+ @version 1.0.0.0
+-->
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>   
+    <meta charset="UTF-8">
+    <title>RockBoxRadio player</title>
+    <script type="text/javascript" src="./js/audioplayer.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./css/audioplayer.css">
+</head>
+<body onload="setup('http://stream.diazol.hu:31010','/rock.mp3?type=.mp3','Rock Radio',0);setupPlayer();setForceDecodeUtf8();">  
+    <audio id="rockboxPlayer" preload="metadata">
+        Your browser does not support the audio element.
+    </audio>    
+    <div class="main">
+        <div class="wrapper">
+            <div id="rockBoxPlayer" class="rockBoxPlayer"> 
+                <h1>&nbsp;</h1>
+                <div class="controlsPanel">
+                    <div class="buttonsPanel">
+                        <button id="playButton" onclick="playRock()" type="button" class="buttons play">></button>
+                        <button id="stopButton" onclick="pauseRock()" type="button" class="buttons stop">x</button>                        
+                    </div> 
+                    <div class="lcdDisplay">            
+                        <div id="infoDiv" class="infoDiv"></div>
+                        <div id="statusDiv" class="statusDiv" style="display:block;"></div>                          
+                    </div>                       
+                    <div class="buttonsPanel">
+                        <button id="volUp" onclick="volUp()" type="button" class="buttons volume">+</button>
+                        <button id="volDown" onclick="volDown()" type="button" class="buttons volume">-</button>
+                    </div>           
+                </div> 
+                <div id="actionDiv" class="actionDiv"><h6 id="caption"></h6></div>    
+            </div>  
+        </div>
+    <div>   
+</body> 
+</html>

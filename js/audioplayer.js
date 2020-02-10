@@ -39,11 +39,23 @@ var timeR = null;
 var playButton = null;
 var stopButton = null;
 var pauseInterval=null;
+var forceDecodeUtf8=false;
 
+function setForceDecodeUtf8(){
+    forceDecodeUtf8=true;
+}
+
+function forceUnicodeEncoding(str) {
+    if(forceDecodeUtf8==true){
+        str=decodeURIComponent(escape(str));
+    }
+    return str;
+}
+  
 function setSongTitle(title){
     statusDiv.style.display="none";    
     infoDiv.style.display="flex"
-    infoDiv.innerHTML=title;    
+    infoDiv.innerHTML=forceUnicodeEncoding(title);    
 }
 
 function setStausText(title){
@@ -79,7 +91,7 @@ function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
         if (this.readyState == 4 && this.status == 200) {
             serverInfo = JSON.parse(this.responseText);
             if(Array.isArray(serverInfo.icestats.source)){
-                setSongTitle(serverInfo.icestats.source[1].title);
+                setSongTitle(serverInfo.icestats.source[sourceIndex].title);
             }else{
                 setSongTitle(serverInfo.icestats.source.title);
                 //setSongTitle("aaaaaaaaaa bbbbbbbbbb cccccc ccccc dddddddddd eeeeeeeeee");                 
