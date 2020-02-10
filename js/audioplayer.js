@@ -23,19 +23,24 @@ var player = null;
 var info = null; 
 var xmlhttp = null;
 var serverInfo=null;        
-var infoDiv = null;            
+var infoDiv = null;  
+var statusDiv = null;           
 var timeR = null;
 var playButton = null;
 var stopButton = null;
 var pauseInterval=null;
 
 function setSongTitle(title){
-    /*if(maxSongTitleLength<title.length){
-        infoDiv.innerHTML=title.substring(0,maxSongTitleLength)+"...";
-    }else{
-        infoDiv.innerHTML=title;
-    }*/
+    statusDiv.style.display="none";    
+    infoDiv.style.display="flex"
     infoDiv.innerHTML=title;    
+}
+
+function setStausText(title){
+    infoDiv.style.display="none"    
+    statusDiv.style.display="flex";    
+    statusDiv.innerHTML=title;  
+
 }
 
 function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
@@ -49,7 +54,9 @@ function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
     caption.innerHTML=playerCaption;
     xmlhttp = new XMLHttpRequest();
     serverInfo=null;        
-    infoDiv = document.getElementById("infoDiv");         
+    infoDiv = document.getElementById("infoDiv"); 
+    statusDiv=document.getElementById("statusDiv");     
+    statusDiv.style.display="none";        
     timeR = setInterval(function(){
         if((!player.paused && pauseInterval==null) || forceSongShowTitle===true){
             xmlhttp.open("GET", urlBase.concat("/", "status-json.xsl"), true);
@@ -77,7 +84,8 @@ function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
         stopButton.disabled=true;
         //info.innerHTML=playerCaption;
         if(player.paused){
-            infoDiv.innerHTML="Press '>' to play.";
+            setSongTitle("Press '>' to play.");
+            //infoDiv.innerHTML="Press '>' to play.";
         }
     };              
     player.onplaying=function() { 
@@ -86,13 +94,15 @@ function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
     };
     player.onpause=function() {
         playButton.disabled=false;            
-        stopButton.disabled=true;                
-        infoDiv.innerHTML="Stopped";        
+        stopButton.disabled=true;     
+        setStausText("Stopped");       
+        //infoDiv.innerHTML="Stopped";        
     };   
     player.onloadstart=function() {
         playButton.disabled=false;            
         stopButton.disabled=true;                
-        infoDiv.innerHTML="Loading...";
+        //infoDiv.innerHTML="Loading...";
+        setStausText("Loading..."); 
     };                
 }
 
@@ -118,7 +128,8 @@ function setPausedTimer(){
         if(pauseInterval==null){
             pauseInterval=setInterval(function(){
                 if(player.paused){
-                    infoDiv.innerHTML="Stopped";
+                    //infoDiv.innerHTML="Stopped";
+                    setStausText("Stopped");                    
                 } 
                 clearInterval(pauseInterval);
                 pauseInterval=null;  
@@ -146,7 +157,8 @@ function volUp(){
     if(player.volume<1){
         setPausedTimer();
         player.volume=Math.round((player.volume+0.1)*10)/10;
-        infoDiv.innerHTML=volumeString();
+        //infoDiv.innerHTML=volumeString();
+        setStausText(volumeString());
         setVolumeButtons();
     }
 }  
@@ -155,7 +167,8 @@ function volDown(){
     if(0<player.volume){
         setPausedTimer();        
         player.volume=Math.round((player.volume-0.1)*10)/10;        
-        infoDiv.innerHTML=volumeString();
+        //infoDiv.innerHTML=volumeString();
+        setStausText(volumeString());
         setVolumeButtons();        
     }
 }  

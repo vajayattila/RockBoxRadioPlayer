@@ -146,6 +146,16 @@ h6{
     animation: infoDiv 9s linear infinite;    
 }
 
+.statusDiv{
+    display: flex;        
+    background-color: transparent;
+    color:black;
+    font-family: repet___;    
+    font-size: 12vw;
+    text-align: center;
+    align-self: center;    
+}
+
 /* Move it (define the animation) */
 @-moz-keyframes infoDiv {
     0%   { -moz-transform: translateX(100%); }

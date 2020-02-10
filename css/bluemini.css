@@ -57,12 +57,15 @@ h6{
 
 .buttons.play{
     color: white;
+    height: 50%;
 }
 .buttons.stop{
     color: white;
+    height: 50%;    
 }
 .buttons.volume{
-    color:black;
+    color:white;
+    height: 50%;      
 }
 .buttons.play:disabled,.buttons.stop:disabled{
     color:#4A4A4A;
@@ -81,6 +84,17 @@ h6{
     align-self: center;
     overflow: hidden;
     position: relative;  
+}
+
+.statusDiv{
+    display: flex;        
+    background-color: transparent;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60vh;
+    line-height: 60vh;
+    text-align: center;
+    align-self: center;    
 }
 
 .infoDiv{
