@@ -56,10 +56,10 @@ h6{
 }
 
 .buttons.play{
-    color: darkgreen;
+    color: white;
 }
 .buttons.stop{
-    color:#990000;
+    color: white;
 }
 .buttons.volume{
     color:black;
@@ -71,19 +71,66 @@ h6{
     color:#4A4A4A;
 }
 
+.lcdDisplay{
+    display: flex;    
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;    
+    padding-top:0; 
+    text-align: center;
+    align-self: center;
+    overflow: hidden;
+    position: relative;  
+}
+
 .infoDiv{
+    display: flex;     
     padding-top:0; 
     flex-grow: 1;
+    white-space: nowrap;
+    width: auto;
+    min-width: 100%; 
     background-color: transparent;
     color:white;
     /*font-family: repet___;*/    
     font-family: 'Courier New', Courier, monospace;
-    font-size: 8px;
-    line-height: 8px;
+    font-size: 60vh;
+    line-height: 60vh;
     text-align: center;
     align-self: center;
+
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);    
+    transform:translateX(100%);
+    /* Apply animation to this element */  
+    -moz-animation: infoDiv 9s linear infinite;
+    -webkit-animation: infoDiv 9s linear infinite;
+    animation: infoDiv 9s linear infinite;      
 }
 
+/* Move it (define the animation) */
+@-moz-keyframes infoDiv {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+@-webkit-keyframes infoDiv {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes infoDiv {
+    0%   { 
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);       
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%); 
+    }
+}
+/*
 @media screen and (min-width: 150px) and (max-width: 199px) {
     .infoDiv{
         font-size: 8.4px;
@@ -107,4 +154,4 @@ h6{
         font-size: 13px;
         line-height: 13px;        
     }
-}
+}*/

@@ -6,7 +6,7 @@
     <script type="text/javascript" src="./js/audioplayer.js"></script> 
     <link rel="stylesheet" type="text/css" href="./css/bluemini.css">
 </head>
-<body onload="setup();setupPlayer();">  
+<body onload="setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio Player',0);setupPlayer();">  
     <audio id="rockboxPlayer" preload="metadata">
         Your browser does not support the audio element.
     </audio>    
@@ -17,7 +17,9 @@
                 <button id="playButton" onclick="playRock()" type="button" class="buttons play">></button>
                 <button id="stopButton" onclick="pauseRock()" type="button" class="buttons stop">x</button>                        
             </div> 
-            <div id="infoDiv" class="infoDiv"></div>            
+            <div class="lcdDisplay">              
+                <div id="infoDiv" class="infoDiv"></div>
+            </div>            
         </div> 
         <div id="actionDiv" class="actionDiv"><h6 id="caption"></h6></div>    
     </div>  

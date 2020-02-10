@@ -55,7 +55,7 @@ h6{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 0.04vw;
-    -webkit-text-stroke-color: #353F47;    
+    -webkit-text-stroke-color: #353F47; 
 }
 
 .controlsPanel{
@@ -67,7 +67,7 @@ h6{
     background: -moz-linear-gradient(left,  #eab92d 0%, #c6b76b 0%, #c6b76b 40%, #c79810 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left,  #eab92d 0%,#c6b76b 0%,#c6b76b 40%,#c79810 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right,  #eab92d 0%,#c6b76b 0%,#c6b76b 40%,#c79810 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eab92d', endColorstr='#c79810',GradientType=1 ); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eab92d', endColorstr='#c79810',GradientType=1 ); /* IE6-9 */ 
 }
 
 .buttonsPanel{
@@ -115,19 +115,57 @@ h6{
     color:#4A4A4A;
 }
 
-.infoDiv{
+.lcdDisplay{
+    display: flex;    
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;    
     padding-top:0; 
-    flex-grow: 1;
-    background-color: transparent;
-    /*color:#8B0000;
-    font-family: Bungee Inline;
-    font-size: 5vw;
-    */
-    color:black;
-    font-family: repet___;    
-    font-size: 7vw;
     text-align: center;
     align-self: center;
+    overflow: hidden;
+    position: relative;  
+}
+
+.infoDiv{
+    display: flex;        
+    background-color: transparent;
+    white-space: nowrap;
+    width: max-content;
+    color:black;
+    font-family: repet___;    
+    font-size: 14vw;
+
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);    
+    transform:translateX(100%);
+    /* Apply animation to this element */  
+    -moz-animation: infoDiv 9s linear infinite;
+    -webkit-animation: infoDiv 9s linear infinite;
+    animation: infoDiv 9s linear infinite;    
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes infoDiv {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+@-webkit-keyframes infoDiv {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes infoDiv {
+    0%   { 
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);       
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%); 
+    }
 }
 
 .actionDiv{

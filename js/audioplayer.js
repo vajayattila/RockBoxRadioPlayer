@@ -1,6 +1,21 @@
 var player = null;  
-var urlBase= "https://vps.vyata.hu:9011";  
-var playerCaption= "RockBoxRadio Player";
+
+/*
+var urlBase= "https://vps.vyata.hu:9011"; // https://rockboxradio.wixsite.com/official
+var playerCaption= "RockBoxRadio Player"; // https://rockboxradio.wixsite.com/official
+var sourceIndex=0; // https://rockboxradio.wixsite.com/official
+
+
+var urlBase= "http://stream.diazol.hu:35200"; // http://rockerradio.online/
+var playerCaption= "Rocker Radio"; // http://rockerradio.online/
+var sourceIndex=1; // http://rockerradio.online/
+
+var urlParams= "/stream?type=.mp3";
+*/
+var urlBase=""; 
+var playerCaption=""; 
+var sourceIndex=0;
+var urlParams= "";
 var songInfoRefreshRate=4000;
 var maxSongTitleLength=60;  
 var forceSongShowTitle=false;
@@ -15,14 +30,19 @@ var stopButton = null;
 var pauseInterval=null;
 
 function setSongTitle(title){
-    if(maxSongTitleLength<title.length){
+    /*if(maxSongTitleLength<title.length){
         infoDiv.innerHTML=title.substring(0,maxSongTitleLength)+"...";
     }else{
         infoDiv.innerHTML=title;
-    }
+    }*/
+    infoDiv.innerHTML=title;    
 }
 
-function setup(){
+function setup(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
+    urlBase= pUrlBase;
+    playerCaption= pPlayerCaption;
+    sourceIndex=pSourceIndex;   
+    urlParams= pUrlParams;
     player = document.getElementById("rockboxPlayer");     
     info = document.getElementById("actionDiv"); 
     caption = document.getElementById("caption");
@@ -42,7 +62,7 @@ function setup(){
         if (this.readyState == 4 && this.status == 200) {
             serverInfo = JSON.parse(this.responseText);
             if(Array.isArray(serverInfo.icestats.source)){
-                setSongTitle(serverInfo.icestats.source[0].title);
+                setSongTitle(serverInfo.icestats.source[1].title);
             }else{
                 setSongTitle(serverInfo.icestats.source.title);
                 //setSongTitle("aaaaaaaaaa bbbbbbbbbb cccccc ccccc dddddddddd eeeeeeeeee");                 
@@ -87,7 +107,7 @@ function pauseRock(){
 
 function setupPlayer(){
     var audio=document.getElementById("rockboxPlayer");
-    audio.src=urlBase.concat("/stream?type=.mp3");
+    audio.src=urlBase.concat(urlParams);
     audio.type="audio/mpeg";
     setVolumeButtons();
     //playRock();    

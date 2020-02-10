@@ -7,7 +7,7 @@
     <script type="text/javascript" src="./js/audioplayer.js"></script> 
     <link rel="stylesheet" type="text/css" href="./css/audioplayer.css">
 </head>
-<body onload="setup();setupPlayer();">  
+<body onload="setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio',0);setupPlayer();">  
     <audio id="rockboxPlayer" preload="metadata">
         Your browser does not support the audio element.
     </audio>    
@@ -23,8 +23,10 @@
                     <div class="buttonsPanel">
                         <button id="stopButton" onclick="pauseRock()" type="button" class="buttons stop">x</button>                        
                         <button id="volUp" onclick="volUp()" type="button" class="buttons volume">+</button>
-                    </div>                    
-                    <div id="infoDiv" class="infoDiv"></div>            
+                    </div>       
+                    <div class="lcdDisplay">                       
+                        <div id="infoDiv" class="infoDiv"></div>            
+                    </div>
                 </div> 
                 <div id="actionDiv" class="actionDiv"><h6 id="caption"></h6></div>    
             </div>  
