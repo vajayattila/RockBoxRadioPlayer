@@ -10,7 +10,7 @@ html, body {
     margin:0;  
 }
 
-.rockBoxPlayer{
+.playerBox{
     margin:0;
     padding:0;
     background: #0000ff;    
@@ -38,8 +38,9 @@ h6{
     flex-wrap: nowrap;
     flex-basis: 0;
     flex-shrink: 1;
-    max-width: 9px;
-    min-width: 9px;
+    /*max-width: 9px;
+    min-width: 9px;*/
+    width: auto;
 }
 
 .buttons{
@@ -51,8 +52,10 @@ h6{
     outline:none;
     margin:0;    
     padding:0;
-    line-height: 11px;
-    font-size: 11px;       
+/*    line-height: 11px;
+    font-size: 11px;*/
+    line-height:0vh;
+    font-size:54vh;           
 }
 
 .buttons.play{
@@ -105,8 +108,7 @@ h6{
     width: auto;
     min-width: 100%; 
     background-color: transparent;
-    color:white;
-    /*font-family: repet___;*/    
+    color:white;  
     font-family: 'Courier New', Courier, monospace;
     font-size: 60vh;
     line-height: 60vh;
@@ -144,28 +146,3 @@ h6{
     transform: translateX(-100%); 
     }
 }
-/*
-@media screen and (min-width: 150px) and (max-width: 199px) {
-    .infoDiv{
-        font-size: 8.4px;
-        line-height: 8.4px;        
-    }
-}
-@media screen and (min-width: 200px) and (max-width: 249px) {
-    .infoDiv{
-        font-size: 11px;
-        line-height: 11px;        
-    }
-}
-@media screen and (min-width: 250px) and (max-width: 399px) {
-    .infoDiv{
-        font-size: 12px;
-        line-height: 12px;        
-    }
-}
-@media screen and (min-width: 400px) {
-    .infoDiv{
-        font-size: 13px;
-        line-height: 13px;        
-    }
-}*/

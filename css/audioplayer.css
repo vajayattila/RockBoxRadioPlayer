@@ -1,67 +1,66 @@
 :root{
     background: transparent;
+    margin: 0;
+    padding: 0;    
 }
 
 @font-face {
-    font-family: "repet___";
-    src: url(../fonts/repet/repet___.ttf) format("truetype");
+    font-family: "TruenoBlack-mBYV";
+    src: url(../fonts/Trueno/TruenoBlack-mBYV.otf) format("truetype");
+}
+
+@font-face {
+    font-family: "Unifont";
+    src: url(../fonts/Unifont/GnuUnifontFull-Pm9P.ttf) format("truetype");
 }
 
 html, body {
     height: 100%;
+    width: 100%;         
     padding:0;
     margin:0;  
 }
 
-.main {
+.playerBox {    
     height: 100%;
-    width: 100%;
-    display: table;    
-}
-
-.wrapper {
-    display: table-cell;
-    height: 100%;
-    vertical-align: middle;
-} 
-
-.rockBoxPlayer {
+    width: 100%;            
     padding:0;
     margin:0;
-    width: 100vw;   
 }
 
 h1{
     margin:0;
-    font-family:Chathura;
-    font-size: 3.8vw;
-    line-height: 3.8vw;    
+    font-family:TruenoBlack-mBYV; 
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+24,828c95+24,828c95+24,828c95+24,828c95+28,28343b+100 */
     background: #b5bdc8; /* Old browsers */
     background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 24%, #828c95 24%, #828c95 24%, #828c95 24%, #828c95 28%, #28343b 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top,  #b5bdc8 0%,#828c95 24%,#828c95 24%,#828c95 24%,#828c95 24%,#828c95 28%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #b5bdc8 0%,#828c95 24%,#828c95 24%,#828c95 24%,#828c95 24%,#828c95 28%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+    font-size: 12vh;
+    line-height: 12vh;     
 }
 
 h6{
     margin:0;
-    font-family:Chathura;
-    font-size: 9vw;
-    line-height: 9vw;
+    font-family:TruenoBlack-mBYV;
+    font-size: 24vh;
+    line-height: 24vh;
     text-align: center;
 
     background: -webkit-linear-gradient(white, #353F47);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 0.04vw;
+    -webkit-text-stroke-width: 0.04vh;
     -webkit-text-stroke-color: #353F47; 
 }
 
 .controlsPanel{
+    padding:0;
+    margin:0;    
     display: flex;
     flex-wrap: nowrap;
-    height: 25vw;
+    height: 61vh;
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eab92d+0,c6b76b+0,c6b76b+40,c79810+100 */
     background: #eab92d; /* Old browsers */
     background: -moz-linear-gradient(left,  #eab92d 0%, #c6b76b 0%, #c6b76b 40%, #c79810 100%); /* FF3.6-15 */
@@ -74,9 +73,7 @@ h6{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-/*    background-color: darkgray;*/
-    font-size: 4vw;
-
+    
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#28343b+0,828c95+64,b5bdc8+100 */
     background: #28343b; /* Old browsers */
     background: -moz-linear-gradient(top,  #28343b 0%, #828c95 64%, #b5bdc8 100%); /* FF3.6-15 */
@@ -93,10 +90,9 @@ h6{
     cursor:pointer;
     overflow: hidden;
     outline:none;
-    font-size:10vw;
-    padding:0;
-    margin:0.5vw; 
-    width: 7vw; 
+    line-height:0vh;
+    font-size:54vh; 
+    height: 50%;
 }
 
 .buttons.play{
@@ -131,15 +127,16 @@ h6{
     display: flex;        
     background-color: transparent;
     white-space: nowrap;
-    width: max-content;
     color:black;
-    font-family: repet___;    
-    font-size: 14vw;
+    font-family: Unifont;    
+    font-size: 62vh;
+    width: max-content;
+    min-width: 100%;
 
     /* Starting position */
-    -moz-transform:translateX(100%);
-    -webkit-transform:translateX(100%);    
-    transform:translateX(100%);
+    -moz-transform:translateX(50%);
+    -webkit-transform:translateX(50%);    
+    transform:translateX(50%);
     /* Apply animation to this element */  
     -moz-animation: infoDiv 9s linear infinite;
     -webkit-animation: infoDiv 9s linear infinite;
@@ -150,8 +147,8 @@ h6{
     display: flex;        
     background-color: transparent;
     color:black;
-    font-family: repet___;    
-    font-size: 12vw;
+    font-family: Unifont;    
+    font-size: 28vh;
     text-align: center;
     align-self: center;    
 }
