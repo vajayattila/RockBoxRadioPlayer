@@ -15,6 +15,7 @@
     <title>RockBoxRadio player</title>
     <script type="text/javascript" src="./js/audioplayer.js"></script> 
     <link rel="stylesheet" type="text/css" href="./css/audioplayer.css">
+    <script src="https://kit.fontawesome.com/ca12700626.js" crossorigin="anonymous"></script>
 </head>
 <body onload="
     rbplayer.setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio',0);
@@ -29,11 +30,11 @@
             <div class="buttonsPanel">
                 <button 
                     id="playButton" onclick="rbplayer.playRock()" type="button" 
-                    class="buttons play">>
+                    class="buttons play"><i class="fas fa-play"></i>
                 </button>
                 <button 
                     id="stopButton" onclick="rbplayer.pauseRock()" type="button" 
-                    class="buttons stop">x
+                    class="buttons stop"><i class="fas fa-stop"></i>
                 </button>                                                
             </div> 
             <div class="lcdDisplay">                       
@@ -43,11 +44,11 @@
             <div class="buttonsPanel">
                 <button 
                     id="volUp" onclick="rbplayer.volUp()" type="button" 
-                    class="buttons volume">+
+                    class="buttons volume"><i class="fas fa-volume-up"></i>
                 </button>
                 <button 
                     id="volDown" onclick="rbplayer.volDown()" type="button" 
-                    class="buttons volume">-
+                    class="buttons volume"><i class="fas fa-volume-down"></i>
                 </button>
             </div>       
         </div> 

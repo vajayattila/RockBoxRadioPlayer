@@ -96,7 +96,7 @@ var rbplayer={
             playButton.disabled=false;            
             stopButton.disabled=true;
             if(rbplayer.player.paused){
-                rbplayer.setSongTitle("Press '>' to play.");
+                rbplayer.setSongTitle("Ready.");
             }
         };              
         rbplayer.player.onplaying=function() { 

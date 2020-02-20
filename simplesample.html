@@ -1,0 +1,35 @@
+<!--
+ @file simplesample.html
+ @brief Simple sample for rbplayer object. 
+ Project home: https://github.com/vajayattila/RockBoxRadioPlayer
+ @author Vajay Attila (vajay.attila@gmail.com)
+ @copyright MIT License (MIT)
+ @date 2020.02.20-2020.02.20
+ @version 1.0.0.0
+-->
+<!DOCTYPE html> 
+<html> 
+<head>  
+    <meta charset="UTF-8">
+    <title>Simple Sample Player</title>
+    <script type="text/javascript" src="./js/audioplayer.js"></script> 
+    <script src="https://kit.fontawesome.com/ca12700626.js" crossorigin="anonymous"></script>
+</head>
+<body onload="
+    rbplayer.setup('https://vps.vyata.hu:9011','/stream?type=.mp3','Simple Sample Radio',0);
+    rbplayer.setupPlayer();
+">
+    <audio id="radio" preload="metadata">
+        Your browser does not support the audio element.
+    </audio>  
+    <h1 id="caption"></h1>
+    <div>
+        <button id="playButton" onclick="rbplayer.playRock()"><i class="fas fa-play"></i></button> 
+        <button id="stopButton" onclick="rbplayer.pauseRock()"><i class="fas fa-stop"></i></button>  
+        <button id="volDown" onclick="rbplayer.volDown()"><i class="fas fa-volume-down"></i></button>     
+        <button id="volUp" onclick="rbplayer.volUp()"><i class="fas fa-volume-up"></i></button> 
+    </div>
+    <div id="infoDiv"></div>    
+    <div id="statusDiv"></div>  
+</body>
+</html>

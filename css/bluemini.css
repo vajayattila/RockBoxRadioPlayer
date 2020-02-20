@@ -51,11 +51,11 @@ h6{
     overflow: hidden;
     outline:none;
     margin:0;    
-    padding:0;
+    padding:1vw;
 /*    line-height: 11px;
     font-size: 11px;*/
     line-height:0vh;
-    font-size:54vh;           
+    font-size:33vh;           
 }
 
 .buttons.play{
