@@ -120,9 +120,9 @@ h6{
     -webkit-transform:translateX(100%);    
     transform:translateX(100%);
     /* Apply animation to this element */  
-    -moz-animation: infoDiv 9s linear infinite;
-    -webkit-animation: infoDiv 9s linear infinite;
-    animation: infoDiv 9s linear infinite;      
+    -moz-animation: infoDiv 12s linear infinite;
+    -webkit-animation: infoDiv 12s linear infinite;
+    animation: infoDiv 12s linear infinite;      
 }
 
 /* Move it (define the animation) */
