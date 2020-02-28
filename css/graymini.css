@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "repet___";
+    src: url(../fonts/repet/repet___.ttf) format("truetype");
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding:0;
+    margin:0;  
+}
+
+.playerBox{
+    margin:0;
+    padding:0;
+    background: #172C4D;    
+    height: 100%;
+}
+
+h1{
+    display: none;
+
+}
+
+h6{
+    display: none;
+}
+
+.controlsPanel{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.buttonsPanel{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-basis: 0;
+    flex-shrink: 1;
+    /*max-width: 9px;
+    min-width: 9px;*/
+    width: auto;
+}
+
+.buttons{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin:0;    
+    padding:1vw;
+/*    line-height: 11px;
+    font-size: 11px;*/
+    line-height:0vh;
+    font-size:20vh;           
+}
+
+.buttons.play{
+    color: white;
+    height: 50%;
+}
+.buttons.stop{
+    color: white;
+    height: 50%;    
+}
+.buttons.volume{
+    color:white;
+    height: 50%;      
+}
+.buttons.play:disabled,.buttons.stop:disabled{
+    color:#4A4A4A;
+}
+.buttons.volume:disabled{
+    color:#4A4A4A;
+}
+
+.lcdDisplay{
+    display: flex;    
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;    
+    padding-top:0; 
+    text-align: center;
+    align-self: center;
+    overflow: hidden;
+    position: relative;  
+}
+
+.statusDiv{
+    display: flex;        
+    background-color: transparent;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60vh;
+    line-height: 60vh;
+    text-align: center;
+    align-self: center;    
+}
+
+.infoDiv{
+    display: flex;     
+    padding-top:0; 
+    flex-grow: 1;
+    white-space: nowrap;
+    width: auto;
+    min-width: 100%; 
+    background-color: transparent;
+    color:white;  
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60vh;
+    line-height: 60vh;
+    text-align: center;
+    align-self: center;
+
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);    
+    transform:translateX(100%);
+    /* Apply animation to this element */  
+    -moz-animation: infoDiv 12s linear infinite;
+    -webkit-animation: infoDiv 12s linear infinite;
+    animation: infoDiv 12s linear infinite;      
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes infoDiv {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+@-webkit-keyframes infoDiv {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes infoDiv {
+    0%   { 
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);       
+    }
+    100% { 
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%); 
+    }
+}
