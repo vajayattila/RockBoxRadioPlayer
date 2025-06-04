@@ -1,0 +1,37 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#111;
+    color:#fff;
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.playerBox{
+    background:#222;
+    padding:20px;
+    border-radius:8px;
+    width:300px;
+    text-align:center;
+}
+.buttons{
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:2em;
+    padding:0 0.5em;
+    cursor:pointer;
+}
+.buttons.play:disabled,
+.buttons.stop:disabled{
+    color:#666;
+}
+#volumeSlider{
+    width:100%;
+    margin-top:10px;
+}
+.infoDiv,.statusDiv{
+    margin-top:10px;
+    font-size:1em;
+}

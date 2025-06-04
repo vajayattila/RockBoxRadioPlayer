@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern RockBoxRadio Player</title>
+    <script type="text/javascript" src="./js/audioplayer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/modern.css">
+    <script src="https://kit.fontawesome.com/ca12700626.js" crossorigin="anonymous"></script>
+</head>
+<body onload="
+    rbplayer.setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio',0);
+    rbplayer.setupPlayer();
+    rbplayer.bindVolumeSlider('volumeSlider');
+">
+    <audio id="radio" preload="metadata">Your browser does not support the audio element.</audio>
+    <div id="playerBox" class="playerBox">
+        <div class="mainControls">
+            <button id="playButton" onclick="rbplayer.playRock()" type="button" class="buttons play"><i class="fas fa-play"></i></button>
+            <button id="stopButton" onclick="rbplayer.pauseRock()" type="button" class="buttons stop"><i class="fas fa-stop"></i></button>
+            <input type="range" id="volumeSlider" min="0" max="100" step="1">
+        </div>
+        <div class="info">
+            <div id="infoDiv" class="infoDiv"></div>
+            <div id="statusDiv" class="statusDiv" style="display:block;"></div>
+        </div>
+		<div id="actionDiv" class="actionDiv"><h6 id="caption"></h6></div>
+    </div>
+</body>
+</html>
