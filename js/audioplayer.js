@@ -36,11 +36,11 @@ var rbplayer={
     pauseInterval: null,
     forceDecodeUtf8: false,
     setForceDecodeUtf8: function(){
-        forceDecodeUtf8=true;
+        rbplayer.forceDecodeUtf8 = true;
     },
     forceUnicodeEncoding: function(str) {
         if(rbplayer.forceDecodeUtf8==true){
-            str=rbplayer.decodeURIComponent(escape(str));
+            str=decodeURIComponent(escape(str));
         }
         return str;
     },
