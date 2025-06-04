@@ -142,7 +142,7 @@ var rbplayer={
         }
     },
     volumeString: function(){
-        return "Volume: " + rbplayer.player.volume*100 + "%";
+        return "Volume: " + Math.round(rbplayer.player.volume*100) + "%";
     },
     setVolumeButtons: function(){
         var volUp=document.getElementById("volUp");  
