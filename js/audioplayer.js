@@ -36,23 +36,23 @@ var rbplayer={
     pauseInterval: null,
     forceDecodeUtf8: false,
     setForceDecodeUtf8: function(){
-        forceDecodeUtf8=true;
+        rbplayer.forceDecodeUtf8=true;
     },
     forceUnicodeEncoding: function(str) {
         if(rbplayer.forceDecodeUtf8==true){
-            str=rbplayer.decodeURIComponent(escape(str));
+            str=decodeURIComponent(escape(str));
         }
         return str;
     },
     setSongTitle: function (title){
-        statusDiv.style.display="none";    
-        infoDiv.style.display="flex"
-        infoDiv.innerHTML=rbplayer.forceUnicodeEncoding(title);    
+        rbplayer.statusDiv.style.display="none";
+        rbplayer.infoDiv.style.display="flex";
+        rbplayer.infoDiv.innerHTML=rbplayer.forceUnicodeEncoding(title);
     },
     setStausText: function (title){
-        infoDiv.style.display="none"    
-        statusDiv.style.display="flex";    
-        statusDiv.innerHTML=title;  
+        rbplayer.infoDiv.style.display="none";
+        rbplayer.statusDiv.style.display="flex";
+        rbplayer.statusDiv.innerHTML=title;
     },
     setup: function(pUrlBase, pUrlParams, pPlayerCaption, pSourceIndex){
         rbplayer.urlBase= pUrlBase;
@@ -89,28 +89,28 @@ var rbplayer={
                 }
             }
         };
-        playButton = document.getElementById("playButton");
-        stopButton = document.getElementById("stopButton");        
+        rbplayer.playButton = document.getElementById("playButton");
+        rbplayer.stopButton = document.getElementById("stopButton");
 
         rbplayer.player.oncanplay=function() {
-            playButton.disabled=false;            
-            stopButton.disabled=true;
+            rbplayer.playButton.disabled=false;
+            rbplayer.stopButton.disabled=true;
             if(rbplayer.player.paused){
                 rbplayer.setSongTitle("Ready.");
             }
         };              
         rbplayer.player.onplaying=function() { 
-            playButton.disabled=true;            
-            stopButton.disabled=false;            
+            rbplayer.playButton.disabled=true;
+            rbplayer.stopButton.disabled=false;
         };
         rbplayer.player.onpause=function() {
-            playButton.disabled=false;            
-            stopButton.disabled=true;     
+            rbplayer.playButton.disabled=false;
+            rbplayer.stopButton.disabled=true;
             rbplayer.setStausText("Stopped");       
         };   
         rbplayer.player.onloadstart=function() {
-            playButton.disabled=false;            
-            stopButton.disabled=true;                
+            rbplayer.playButton.disabled=false;
+            rbplayer.stopButton.disabled=true;
             rbplayer.setStausText("Loading..."); 
         };                
     },
