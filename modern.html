@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern RockBoxRadio Player</title>
+    <script type="text/javascript" src="./js/audioplayer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1Cm3N1Xa76tbyG9ly1bs9xeqKxn30L9PMUk4z7ZSN7zjsFvdcT+kEcL50DJBSNgnob0GmSp2T5cU4gnGUd2IQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body onload="
+    rbplayer.setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio',0);
+    rbplayer.setupPlayer();
+    rbplayer.bindVolumeSlider('volumeSlider');
+">
+    <audio id="radio" preload="metadata">Your browser does not support the audio element.</audio>
+    <div id="playerBox" class="playerBox">
+        <div class="mainControls">
+            <button id="playButton" onclick="rbplayer.playRock()" type="button" class="buttons play"><i class="fas fa-play"></i></button>
+            <button id="stopButton" onclick="rbplayer.pauseRock()" type="button" class="buttons stop"><i class="fas fa-stop"></i></button>
+            <input type="range" id="volumeSlider" min="0" max="100" step="1">
+        </div>
+        <div class="info">
+            <div id="infoDiv" class="infoDiv"></div>
+            <div id="statusDiv" class="statusDiv" style="display:block;"></div>
+        </div>
+    </div>
+</body>
+</html>

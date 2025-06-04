@@ -34,6 +34,7 @@ var rbplayer={
     playButton: null,
     stopButton: null,
     pauseInterval: null,
+    volumeSlider: null,
     forceDecodeUtf8: false,
     setForceDecodeUtf8: function(){
         rbplayer.forceDecodeUtf8 = true;
@@ -156,17 +157,32 @@ var rbplayer={
     volUp: function(){
         if(rbplayer.player.volume<1){
             rbplayer.setPausedTimer();
-            rbplayer.player.volume=Math.round((rbplayer.player.volume+0.1)*10)/10;
-            rbplayer.setStausText(rbplayer.volumeString());
-            rbplayer.setVolumeButtons();
+            rbplayer.setVolume(Math.round((rbplayer.player.volume+0.1)*10)/10);
         }
-    },  
+    },
     volDown: function (){
         if(0<rbplayer.player.volume){
-            rbplayer.setPausedTimer();        
-            rbplayer.player.volume=Math.round((rbplayer.player.volume-0.1)*10)/10;        
-            rbplayer.setStausText(rbplayer.volumeString());
-            rbplayer.setVolumeButtons();        
+            rbplayer.setPausedTimer();
+            rbplayer.setVolume(Math.round((rbplayer.player.volume-0.1)*10)/10);
+        }
+    },
+    setVolume: function(value){
+        value=Math.max(0, Math.min(1, value));
+        rbplayer.player.volume=value;
+        rbplayer.setStausText(rbplayer.volumeString());
+        rbplayer.setVolumeButtons();
+        if(rbplayer.volumeSlider!=null){
+            rbplayer.volumeSlider.value=Math.round(value*100);
+        }
+    },
+    bindVolumeSlider: function(id){
+        rbplayer.volumeSlider=document.getElementById(id);
+        if(rbplayer.volumeSlider!=null){
+            rbplayer.volumeSlider.value=Math.round(rbplayer.player.volume*100);
+            rbplayer.volumeSlider.addEventListener('input', function(e){
+                rbplayer.setPausedTimer();
+                rbplayer.setVolume(e.target.value/100);
+            });
         }
     },
     forceSongTitle: function(){
