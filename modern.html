@@ -5,7 +5,7 @@
     <title>Modern RockBoxRadio Player</title>
     <script type="text/javascript" src="./js/audioplayer.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/modern.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1Cm3N1Xa76tbyG9ly1bs9xeqKxn30L9PMUk4z7ZSN7zjsFvdcT+kEcL50DJBSNgnob0GmSp2T5cU4gnGUd2IQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/ca12700626.js" crossorigin="anonymous"></script>
 </head>
 <body onload="
     rbplayer.setup('https://vps.vyata.hu:9011','/stream?type=.mp3','RockBoxRadio',0);
@@ -23,6 +23,7 @@
             <div id="infoDiv" class="infoDiv"></div>
             <div id="statusDiv" class="statusDiv" style="display:block;"></div>
         </div>
+		<div id="actionDiv" class="actionDiv"><h6 id="caption"></h6></div>
     </div>
 </body>
 </html>
